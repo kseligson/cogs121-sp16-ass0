@@ -38,6 +38,7 @@ app.get("/", router.index.view);
 
 app.post("/message", router.message.send);
 app.post("/delete/:id", router.message.delete);
+app.post("/update/:id", router.message.update);
 
 // Start Server
 http.createServer(app).listen(app.get("port"), function() {

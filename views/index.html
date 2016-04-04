@@ -32,6 +32,7 @@
     		          <th>Email</th>
     		          <th>Content</th>
     		          <th>Date</th>
+                      <th>Date Modified</th>
                       <th>Options</th>
     	           </thead>
     	           <tbody>
@@ -40,6 +41,7 @@
     			             <td>{{email}}</td>
     			             <td>{{content}}</td>
     			             <td>{{created}}</td>
+                             <td>{{modified}}</td>
                              <td><span class="glyphicon glyphicon-pencil"></span><span class="glyphicon glyphicon-remove"></span></td>
     		              </tr>
     		          {{/each}}
@@ -48,6 +50,21 @@
             {{/if}}
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="updateModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Edit Message</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div> 
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery.js"></script>

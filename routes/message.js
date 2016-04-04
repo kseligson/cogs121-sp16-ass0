@@ -5,7 +5,8 @@ exports.send = function(req, res) {
     var newMessage = new models.Message({
     	"email": req.body.email,
     	"content": req.body.content,
-    	"created": new Date()
+    	"created": new Date(),
+        "modified": new Date()
     });
     newMessage.save(afterSaving);
 
@@ -34,5 +35,25 @@ exports.delete = function(req, res) {
         }
         res.send("Message deleted!");
         //res.redirect('/'); //Redirect to home
+    }
+}
+
+exports.update = function(req, res) {
+    console.log("In update!");
+    console.log(req.body);
+    var messageID = req.params.id;
+    models.Message
+        .find({"_id": messageID})
+        .update({"email": req.body.email})
+        .update({"content": req.body.content})
+        .update({"modified": new Date()})
+        .exec(afterUpdate);
+
+    function afterUpdate(err) {
+        if(err) {
+            console.log(err);
+            res.send(500);
+        }
+        res.redirect('/');
     }
 }
