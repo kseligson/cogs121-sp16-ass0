@@ -1,0 +1,55 @@
+html, body {
+    color: #434242;
+    font-family: 'Open Sans', sans-serif !important;
+    height: 100%;
+}
+body {
+    background: #DDD7DD;
+    font-size: 15px;
+    line-height: 1.64;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+hr {
+    margin: 0px 100px 20px 100px;
+    opacity: 0.2;
+    border-color: #7C48D6;
+}
+td {
+    padding: 5px 10px;
+}
+.background-white {
+    background: #FFFFFF;
+    width: 100%;
+    margin-top: 10px;
+}
+.container {
+    max-width: 1280px;
+    padding: 40px 180px;
+}
+tr:nth-child(even) {
+    background-color: #DDD7DD;
+}
+table {
+    border: 1px solid #DDD7DD;
+}
+th {
+    border-bottom: 1px solid #DDD7DD;
+    border-right: 1px solid #DDD7DD;
+    text-align: center;
+}
+.glyphicon-pencil {
+    padding-right: 2em;
+}
+#email-text {
+    width: 200px;
+    border: 1px solid gray;
+}
+#content-text {
+    border: 1px solid gray;
+}
+#submitbtn {
+    width: 250px;
+}

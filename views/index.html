@@ -3,33 +3,56 @@
 
 <head>
     <title></title>
+
+    <!-- CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/css/style.css"  rel="stylesheet">
 </head>
 
 <body>
-    <form action="/message" method="post">
-    	Email: <input type="text" name="email"><br>
-    	Content: <textarea name="content"></textarea><br>
-    	<input type="submit" value="Submit">
-    </form>
-    {{#if messages}}
-    <h3>My Messages</h3>
-    <table>
-    	<thead>
-    		<th>Email</th>
-    		<th>Content</th>
-    		<th>Date</th>
-    	</thead>
-    	<tbody>
-    		{{#each messages}}
-    		<tr>
-    			<td>{{email}}</td>
-    			<td>{{content}}</td>
-    			<td>{{created}}</td>
-    		</tr>
-    		{{/each}}
-    	</tbody>
-    </table>
-    {{/if}}
+    <div>
+        <div id="message-create" class="container">
+            <h1>Create Message</h1>
+            <hr />
+            <form action="/message" method="post" align="center">
+    	       <div id="email-area" align="center"><strong>Email:</strong> <input type="text" name="email" id="email-text"></div><br>
+    	       <div id="content-area"><strong>Content:</strong> <textarea name="content" id="content-text"></textarea></div><br>
+    	       <input type="submit" value="Submit" id="submitbtn">
+            </form>
+        </div>
+    </div>
+    <div class="background-white">
+        <div id="message-view" class="container">
+            {{#if messages}}
+                <h1>My Messages</h1>
+                <hr />
+                <table align="center">
+    	           <thead>
+    		          <th>Email</th>
+    		          <th>Content</th>
+    		          <th>Date</th>
+                      <th>Options</th>
+    	           </thead>
+    	           <tbody>
+    		          {{#each messages}}
+    		              <tr>
+    			             <td>{{email}}</td>
+    			             <td>{{content}}</td>
+    			             <td>{{created}}</td>
+                             <td><span class="glyphicon glyphicon-pencil"></span><span class="glyphicon glyphicon-remove"></span></td>
+    		              </tr>
+    		          {{/each}}
+    	           </tbody>
+                </table>
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/project.js"></script>
 </body>
 
 </html>
