@@ -17,3 +17,22 @@ exports.send = function(req, res) {
     	res.redirect('/'); //Redirect to home
     };
 };
+
+exports.delete = function(req, res) {
+    console.log("In delete!");
+    console.log(req.params.id);
+    var messageID = req.params.id;
+    models.Message
+        .find({"_id": messageID})
+        .remove()
+        .exec(afterRemoving);
+
+    function afterRemoving(err) {
+        if(err) {
+            console.log(err);
+            res.send(500);
+        }
+        res.send("Message deleted!");
+        //res.redirect('/'); //Redirect to home
+    }
+}

@@ -37,6 +37,7 @@ app.use(parser.body.json());
 app.get("/", router.index.view);
 
 app.post("/message", router.message.send);
+app.post("/delete/:id", router.message.delete);
 
 // Start Server
 http.createServer(app).listen(app.get("port"), function() {

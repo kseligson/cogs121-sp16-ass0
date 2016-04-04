@@ -9,9 +9,18 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	$('.glyphicon-remove').click(deleteMessage);
+	$('.message .glyphicon-remove').click(deleteMessage);
 }
 
 function deleteMessage(e) {
-	console.log(e);
+	e.preventDefault();
+
+	var messageID = $(this).closest('.message').attr('id');
+	var idNumber = messageID.substr('message'.length);
+	console.log(messageID);
+	console.log(idNumber);
+
+	$.post('/delete/' + idNumber, function() {
+		window.location.href='/';
+	});
 }

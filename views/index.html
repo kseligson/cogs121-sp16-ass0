@@ -22,9 +22,9 @@
             </form>
         </div>
     </div>
-    <div class="background-white">
-        <div id="message-view" class="container">
-            {{#if messages}}
+    {{#if messages}}
+        <div class="background-white">
+            <div id="message-view" class="container">
                 <h1>My Messages</h1>
                 <hr />
                 <table align="center">
@@ -36,7 +36,7 @@
     	           </thead>
     	           <tbody>
     		          {{#each messages}}
-    		              <tr>
+    		              <tr class="message" id="message{{id}}">
     			             <td>{{email}}</td>
     			             <td>{{content}}</td>
     			             <td>{{created}}</td>
