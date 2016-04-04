@@ -5,8 +5,7 @@ exports.send = function(req, res) {
     var newMessage = new models.Message({
     	"email": req.body.email,
     	"content": req.body.content,
-    	"created": new Date(),
-        "modified": new Date()
+    	"created": new Date()
     });
     newMessage.save(afterSaving);
 
@@ -20,8 +19,6 @@ exports.send = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-    console.log("In delete!");
-    console.log(req.params.id);
     var messageID = req.params.id;
     models.Message
         .find({"_id": messageID})
@@ -39,14 +36,11 @@ exports.delete = function(req, res) {
 }
 
 exports.update = function(req, res) {
-    console.log("In update!");
-    console.log(req.body);
     var messageID = req.params.id;
     models.Message
         .find({"_id": messageID})
         .update({"email": req.body.email})
         .update({"content": req.body.content})
-        .update({"modified": new Date()})
         .exec(afterUpdate);
 
     function afterUpdate(err) {

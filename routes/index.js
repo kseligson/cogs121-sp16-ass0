@@ -11,7 +11,6 @@ exports.view = function(req, res) {
     		console.log(err);
     		res.send(500);
     	}
-        console.log(msgs);
     	res.render("index", {'messages': msgs});
     };
 }
